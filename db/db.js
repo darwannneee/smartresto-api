@@ -1,14 +1,24 @@
-require('dotenv').config(); // Import dotenv and configure it
-
 const { Sequelize } = require('sequelize');
 const mysql2 = require('mysql2');
+require('dotenv').config(); // Import dotenv and configure it
 
-// Use environment variables for database configuration
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-    host: process.env.DB_HOST,
+const db = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASS, {
+    host: process.env.DB_HOSTNAME ,
     dialect: 'mysql',
-    dialectModule: mysql2,
-    logging: false, // Set to true if you want to see SQL queries logged
+    dialectModule: mysql2, // Needed to fix sequelize issues with WebPack
+    define: {
+        timestamps: false,
+    },
+    port: 3306 // Ensure port is set properly
 });
 
-module.exports = sequelize;
+// Test the connection
+db.authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
+
+module.exports = db;
