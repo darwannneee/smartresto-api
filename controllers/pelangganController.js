@@ -21,6 +21,7 @@ exports.createPelanggan = async (req, res) => {
     }
 
     try {
+        console.log(Pelanggan); // Ini seharusnya mencetak definisi model Pelanggan
         let pelanggan = await Pelanggan.findOne({ where: { email } });
 
         if (pelanggan) {
