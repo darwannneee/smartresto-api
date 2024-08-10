@@ -12,7 +12,6 @@ exports.getAllPelanggan = async (req, res) => {
     }
 };
 
-// Create Pelanggan
 exports.createPelanggan = async (req, res) => {
     const { nama_pelanggan, email, nomor_meja, nomor_hp } = req.body;
     console.log(req.body);
