@@ -1,4 +1,4 @@
-const { Kasir } = require('../models/Kasir'); // Sesuaikan path sesuai dengan struktur folder Anda
+const Kasir = require('../models/Kasir'); // Corrected import
 
 // Get All Kasir
 exports.getAllKasir = async (req, res) => {
