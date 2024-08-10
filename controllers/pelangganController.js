@@ -1,4 +1,4 @@
-const { Pelanggan } = require('../models/Pelanggan');
+const Pelanggan = require('../models/Kasir'); // Corrected import
 
 // Get All Pelanggan
 exports.getAllPelanggan = async (req, res) => {
@@ -21,7 +21,6 @@ exports.createPelanggan = async (req, res) => {
     }
 
     try {
-        console.log(Pelanggan); // Ini seharusnya mencetak definisi model Pelanggan
         let pelanggan = await Pelanggan.findOne({ where: { email } });
 
         if (pelanggan) {
