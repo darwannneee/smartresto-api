@@ -1,4 +1,4 @@
-const Pelanggan = require('../models/Kasir'); // Corrected import
+const Pelanggan = require('../models/Pelanggan'); // Corrected import
 
 // Get All Pelanggan
 exports.getAllPelanggan = async (req, res) => {
